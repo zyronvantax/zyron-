@@ -413,4 +413,42 @@ a {
   .contact-actions .button {
     width: 100%;
   }
+}.footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
 }
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-content p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+@media (max-width: 700px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
