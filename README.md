@@ -7,7 +7,7 @@ e soluções digitais de forma profissional, moderna e orientada a resultados.
 
 Acesse a versão online:
 
-[https://zyronvantax.github.io/zyron-/](https://zyronvantax.github.io/zyron-/)
+[https://zyronvantax.github.io/zyron-landing-page/](https://zyronvantax.github.io/zyron-landing-page/)
 
 ## Tecnologias utilizadas
 
@@ -32,13 +32,13 @@ Acesse a versão online:
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/zyronvantax/zyron-.git
+   git clone https://github.com/zyronvantax/zyron-landing-page.git
    ```
 
 2. Entre na pasta do projeto:
 
    ```bash
-   cd zyron-
+   cd zyron-landing-page
    ```
 
 3. Abra o arquivo `index.html` diretamente no navegador ou utilize uma extensão
