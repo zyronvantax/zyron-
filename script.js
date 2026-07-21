@@ -62,3 +62,17 @@ menu.querySelectorAll("a").forEach((link) => {
     menuToggle.setAttribute("aria-label", "Abrir menu");
   });
 });
+document.addEventListener("click", (event) => {
+  const clickedInsideMenu = menu.contains(event.target);
+  const clickedToggle = menuToggle.contains(event.target);
+
+  if (
+    menu.classList.contains("open") &&
+    !clickedInsideMenu &&
+    !clickedToggle
+  ) {
+    menu.classList.remove("open");
+    menuToggle.textContent = "☰";
+    menuToggle.setAttribute("aria-label", "Abrir menu");
+  }
+});
