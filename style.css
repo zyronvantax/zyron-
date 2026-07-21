@@ -41,6 +41,24 @@ button:focus-visible,
   outline-offset: 4px;
 }
 
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1100;
+  padding: 12px 18px;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 700;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 .container {
   width: min(90%, var(--max-width));
   margin: 0 auto;
