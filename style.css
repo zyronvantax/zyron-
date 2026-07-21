@@ -559,3 +559,31 @@ a {
     display: flex;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .badge,
+  .hero h1,
+  .hero-text > p,
+  .hero-actions,
+  .hero-card,
+  .reveal,
+  .reveal.show {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .button,
+  .service-card {
+    transition: none;
+  }
+
+  .button:hover,
+  .service-card:hover {
+    transform: none;
+  }
+}
