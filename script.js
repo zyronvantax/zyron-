@@ -17,3 +17,26 @@ window.addEventListener("load", () => {
     element.style.transform = "translateY(0)";
   });
 });
+const revealElements = document.querySelectorAll(
+  ".section-heading, .service-card"
+);
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.15,
+  }
+);
+
+revealElements.forEach((element, index) => {
+  element.classList.add("reveal");
+  element.style.transitionDelay = `${index * 0.12}s`;
+  revealObserver.observe(element);
+});
