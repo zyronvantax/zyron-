@@ -359,6 +359,68 @@ a {
   transform: translateY(0);
 }
 
+.projects {
+  padding: 110px 0;
+  border-top: 1px solid var(--border);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgba(139, 92, 246, 0.06), transparent),
+    var(--surface);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(139, 92, 246, 0.55);
+}
+
+.project-category {
+  color: var(--primary-light);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.project-card h3 {
+  margin-top: 28px;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.project-card p {
+  margin: 16px 0 28px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.project-card .button {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .contact {
   padding: 110px 0;
   border-top: 1px solid var(--border);
@@ -578,12 +640,14 @@ a {
   }
 
   .button,
-  .service-card {
+  .service-card,
+  .project-card {
     transition: none;
   }
 
   .button:hover,
-  .service-card:hover {
+  .service-card:hover,
+  .project-card:hover {
     transform: none;
   }
 }

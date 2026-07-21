@@ -3,7 +3,7 @@ const elements = document.querySelectorAll(
 );
 
 const revealElements = document.querySelectorAll(
-  ".section-heading, .service-card, .about-text, .about-card div, .contact-box"
+  ".section-heading, .service-card, .about-text, .about-card div, .project-card, .contact-box"
 );
 
 const showRevealElements = () => {
