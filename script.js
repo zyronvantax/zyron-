@@ -41,3 +41,15 @@ revealElements.forEach((element, index) => {
   element.style.transitionDelay = `${index * 0.12}s`;
   revealObserver.observe(element);
 });
+const menuToggle = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".menu");
+
+menuToggle.addEventListener("click", () => {
+  menu.classList.toggle("open");
+});
+
+menu.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    menu.classList.remove("open");
+  });
+});

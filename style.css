@@ -523,3 +523,39 @@ a {
     grid-template-columns: 1fr;
   }
 }
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: relative;
+  }
+
+  .menu {
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10, 10, 15, 0.98);
+  }
+
+  .menu.open {
+    display: flex;
+  }
+}
