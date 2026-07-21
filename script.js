@@ -1,54 +1,75 @@
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
-
 const elements = document.querySelectorAll(
-  ".badge, .hero h1, .hero-text > p, .hero-actions, .hero-card"
+  ".hero .badge, .hero h1, .hero-text > p, .hero-actions, .hero-card"
 );
-
-if (!prefersReducedMotion) {
-  elements.forEach((element, index) => {
-    element.style.opacity = "0";
-    element.style.transform = "translateY(24px)";
-    element.style.transition = `
-      opacity 0.7s ease ${index * 0.12}s,
-      transform 0.7s ease ${index * 0.12}s
-    `;
-  });
-
-  window.addEventListener("load", () => {
-    elements.forEach((element) => {
-      element.style.opacity = "1";
-      element.style.transform = "translateY(0)";
-    });
-  });
-}
 
 const revealElements = document.querySelectorAll(
   ".section-heading, .service-card, .about-text, .about-card div, .contact-box"
 );
 
-if (!prefersReducedMotion) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-    }
-  );
-
-  revealElements.forEach((element, index) => {
-    element.classList.add("reveal");
-    element.style.transitionDelay = `${index * 0.12}s`;
-    revealObserver.observe(element);
+const showRevealElements = () => {
+  revealElements.forEach((element) => {
+    element.classList.remove("reveal");
+    element.classList.add("show");
+    element.style.removeProperty("transition-delay");
   });
+};
+
+try {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (!prefersReducedMotion) {
+    elements.forEach((element, index) => {
+      element.style.opacity = "0";
+      element.style.transform = "translateY(24px)";
+      element.style.transition = `
+        opacity 0.7s ease ${index * 0.12}s,
+        transform 0.7s ease ${index * 0.12}s
+      `;
+    });
+
+    window.addEventListener("load", () => {
+      elements.forEach((element) => {
+        element.style.opacity = "1";
+        element.style.transform = "translateY(0)";
+      });
+    });
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+        }
+      );
+
+      revealElements.forEach((element, index) => {
+        element.classList.add("reveal");
+        element.style.transitionDelay = `${index * 0.12}s`;
+        revealObserver.observe(element);
+      });
+    } else {
+      showRevealElements();
+    }
+  }
+} catch {
+  elements.forEach((element) => {
+    element.style.transition = "none";
+    element.style.opacity = "1";
+    element.style.transform = "none";
+  });
+
+  showRevealElements();
 }
+
 const menuToggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".menu");
 
