@@ -34,6 +34,13 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible,
+button:focus-visible,
+.menu-toggle:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
+
 .container {
   width: min(90%, var(--max-width));
   margin: 0 auto;
