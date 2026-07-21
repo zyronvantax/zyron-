@@ -464,3 +464,62 @@ a {
     text-align: center;
   }
 }
+.about {
+  padding: 110px 0;
+  border-top: 1px solid var(--border);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.about-text h2 {
+  margin-top: 18px;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.about-text p {
+  margin-top: 20px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.about-card {
+  display: grid;
+  gap: 16px;
+}
+
+.about-card div {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.about-card strong,
+.about-card span {
+  display: block;
+}
+
+.about-card strong {
+  color: var(--primary-light);
+  font-size: 1.2rem;
+}
+
+.about-card span {
+  margin-top: 8px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+}

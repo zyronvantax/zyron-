@@ -17,8 +17,9 @@ window.addEventListener("load", () => {
     element.style.transform = "translateY(0)";
   });
 });
+
 const revealElements = document.querySelectorAll(
-  ".section-heading, .service-card"
+  ".section-heading, .service-card, .about-text, .about-card div, .contact-box"
 );
 
 const revealObserver = new IntersectionObserver(
