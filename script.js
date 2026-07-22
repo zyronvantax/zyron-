@@ -83,6 +83,61 @@ try {
 const menuToggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".menu");
 
+const menuSectionLinks = Array.from(
+  menu.querySelectorAll('a[href^="#"]')
+)
+  .map((link) => {
+    const targetId = link.getAttribute("href").slice(1);
+    const section = document.getElementById(targetId);
+
+    if (!section || !section.matches("main section[id]")) {
+      return null;
+    }
+
+    return { link, section };
+  })
+  .filter(Boolean);
+
+const setActiveMenuLink = (activeSection) => {
+  menuSectionLinks.forEach(({ link, section }) => {
+    const isActive = section === activeSection;
+
+    link.classList.toggle("active", isActive);
+
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+};
+
+if ("IntersectionObserver" in window && menuSectionLinks.length > 0) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      const visibleEntry = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort(
+          (firstEntry, secondEntry) =>
+            Math.abs(firstEntry.boundingClientRect.top - window.innerHeight * 0.25) -
+            Math.abs(secondEntry.boundingClientRect.top - window.innerHeight * 0.25)
+        )[0];
+
+      if (visibleEntry) {
+        setActiveMenuLink(visibleEntry.target);
+      }
+    },
+    {
+      rootMargin: "-25% 0px -65% 0px",
+      threshold: 0,
+    }
+  );
+
+  menuSectionLinks.forEach(({ section }) => {
+    sectionObserver.observe(section);
+  });
+}
+
 menuToggle.addEventListener("click", () => {
   menu.classList.toggle("open");
 

@@ -100,6 +100,7 @@ button:focus-visible,
 }
 
 .menu a {
+  position: relative;
   color: var(--text-muted);
   font-size: 0.95rem;
   transition: 0.2s ease;
@@ -107,6 +108,22 @@ button:focus-visible,
 
 .menu a:hover {
   color: var(--text);
+}
+
+.menu a.active {
+  color: var(--text);
+}
+
+.menu a.active::after {
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--primary);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.65);
+  content: "";
 }
 
 .button {
@@ -1011,6 +1028,7 @@ button:focus-visible,
     transition: none !important;
   }
 
+  .menu a,
   .button,
   .service-card,
   .project-card {
