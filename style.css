@@ -525,6 +525,14 @@ button:focus-visible,
   border-color: var(--primary);
 }
 
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .contact-form .button {
   width: 100%;
 }
