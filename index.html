@@ -307,55 +307,59 @@
               value="Novo contato pelo site da Zyron"
             />
 
-            <div class="form-field">
-              <label for="contact-name">Nome</label>
-              <input
-                type="text"
-                id="contact-name"
-                name="name"
-                autocomplete="name"
-                minlength="2"
-                maxlength="80"
-                placeholder="Seu nome"
-                required
-              />
+            <div class="form-row">
+              <div class="form-field">
+                <label for="contact-name">Nome</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  autocomplete="name"
+                  minlength="2"
+                  maxlength="80"
+                  placeholder="Seu nome"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="contact-email">E-mail</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  autocomplete="email"
+                  maxlength="120"
+                  placeholder="seuemail@exemplo.com"
+                  required
+                />
+              </div>
             </div>
 
-            <div class="form-field">
-              <label for="contact-email">E-mail</label>
-              <input
-                type="email"
-                id="contact-email"
-                name="email"
-                autocomplete="email"
-                maxlength="120"
-                placeholder="seuemail@exemplo.com"
-                required
-              />
-            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="contact-project">Tipo de projeto</label>
+                <select id="contact-project" name="project" required>
+                  <option value="" disabled selected>Selecione uma opção</option>
+                  <option value="landing-page">Landing page</option>
+                  <option value="site-institucional">Site institucional</option>
+                  <option value="produto-digital">Produto digital</option>
+                  <option value="loja-virtual">Loja virtual</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
 
-            <div class="form-field">
-              <label for="contact-project">Tipo de projeto</label>
-              <select id="contact-project" name="project" required>
-                <option value="" disabled selected>Selecione uma opção</option>
-                <option value="landing-page">Landing page</option>
-                <option value="site-institucional">Site institucional</option>
-                <option value="produto-digital">Produto digital</option>
-                <option value="loja-virtual">Loja virtual</option>
-                <option value="outro">Outro</option>
-              </select>
-            </div>
-
-            <div class="form-field">
-              <label for="contact-budget">Orçamento estimado</label>
-              <select id="contact-budget" name="budget" required>
-                <option value="" disabled selected>Selecione uma faixa</option>
-                <option value="ate-500">Até R$ 500</option>
-                <option value="500-1000">R$ 500 a R$ 1.000</option>
-                <option value="1000-3000">R$ 1.000 a R$ 3.000</option>
-                <option value="acima-3000">Acima de R$ 3.000</option>
-                <option value="nao-definido">Ainda não defini</option>
-              </select>
+              <div class="form-field">
+                <label for="contact-budget">Orçamento estimado</label>
+                <select id="contact-budget" name="budget" required>
+                  <option value="" disabled selected>Selecione uma faixa</option>
+                  <option value="ate-500">Até R$ 500</option>
+                  <option value="500-1000">R$ 500 a R$ 1.000</option>
+                  <option value="1000-3000">R$ 1.000 a R$ 3.000</option>
+                  <option value="acima-3000">Acima de R$ 3.000</option>
+                  <option value="nao-definido">Ainda não defini</option>
+                </select>
+              </div>
             </div>
 
             <div class="form-field">

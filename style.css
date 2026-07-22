@@ -492,6 +492,18 @@ button:focus-visible,
   gap: 18px;
 }
 
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 700px) {
+  .form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .form-field {
   display: grid;
   gap: 8px;
