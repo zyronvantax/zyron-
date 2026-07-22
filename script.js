@@ -144,6 +144,21 @@ desktopMediaQuery.addEventListener("change", (event) => {
 const contactForm = document.querySelector(".contact-form");
 
 if (contactForm) {
+  const messageInput = contactForm.querySelector("#contact-message");
+  const messageCounter = contactForm.querySelector(".message-counter");
+
+  const updateMessageCounter = () => {
+    if (messageInput && messageCounter) {
+      messageCounter.textContent =
+        `${messageInput.value.length}/${messageInput.maxLength} caracteres`;
+    }
+  };
+
+  if (messageInput && messageCounter) {
+    messageInput.addEventListener("input", updateMessageCounter);
+    updateMessageCounter();
+  }
+
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -170,6 +185,7 @@ if (contactForm) {
       }
 
       contactForm.reset();
+      updateMessageCounter();
       statusMessage.textContent =
         "Mensagem enviada com sucesso! Entraremos em contato em breve.";
       statusMessage.classList.add("is-success");

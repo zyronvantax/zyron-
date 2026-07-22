@@ -531,6 +531,14 @@ button:focus-visible,
   resize: vertical;
 }
 
+.message-counter {
+  margin: -2px 0 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: right;
+}
+
 .form-field input:focus-visible,
 .form-field select:focus-visible,
 .form-field textarea:focus-visible {
