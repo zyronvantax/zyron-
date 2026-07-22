@@ -366,9 +366,125 @@ button:focus-visible,
   line-height: 1.7;
 }
 
+.process {
+  padding: 110px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  background:
+    radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.12), transparent 28%),
+    var(--background);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  list-style: none;
+}
+
+.process-step {
+  position: relative;
+  min-width: 0;
+}
+
+.process-step:not(:last-child)::after {
+  position: absolute;
+  top: 27px;
+  left: calc(50% + 36px);
+  width: calc(100% - 50px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), rgba(139, 92, 246, 0.18));
+  content: "";
+}
+
+.process-number {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+  border: 5px solid var(--background);
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 12px 28px rgba(139, 92, 246, 0.24);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.process-card {
+  min-height: 250px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+  text-align: center;
+}
+
+.process-card h3 {
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.process-card p {
+  margin-top: 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
 @media (max-width: 900px) {
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .process-step:nth-child(2)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .process {
+    padding: 80px 0;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-step {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .process-step:not(:last-child)::after {
+    display: block;
+    top: 48px;
+    left: 23px;
+    width: 2px;
+    height: calc(100% - 4px);
+  }
+
+  .process-number {
+    width: 48px;
+    height: 48px;
+    margin: 0;
+    border-width: 4px;
+  }
+
+  .process-card {
+    min-height: auto;
+    padding: 24px 22px;
+    text-align: left;
   }
 }
 .reveal {
