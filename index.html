@@ -347,6 +347,18 @@
             </div>
 
             <div class="form-field">
+              <label for="contact-budget">Orçamento estimado</label>
+              <select id="contact-budget" name="budget" required>
+                <option value="" disabled selected>Selecione uma faixa</option>
+                <option value="ate-500">Até R$ 500</option>
+                <option value="500-1000">R$ 500 a R$ 1.000</option>
+                <option value="1000-3000">R$ 1.000 a R$ 3.000</option>
+                <option value="acima-3000">Acima de R$ 3.000</option>
+                <option value="nao-definido">Ainda não defini</option>
+              </select>
+            </div>
+
+            <div class="form-field">
               <label for="contact-message">Mensagem</label>
               <textarea
                 id="contact-message"
