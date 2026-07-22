@@ -140,3 +140,46 @@ desktopMediaQuery.addEventListener("change", (event) => {
     menuToggle.setAttribute("aria-expanded", "false");
   }
 });
+
+const contactForm = document.querySelector(".contact-form");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const statusMessage = contactForm.querySelector(".form-status");
+    const originalButtonText = submitButton.textContent;
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Enviando...";
+    statusMessage.textContent = "";
+    statusMessage.classList.remove("is-success", "is-error");
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Falha ao enviar o formulário.");
+      }
+
+      contactForm.reset();
+      statusMessage.textContent =
+        "Mensagem enviada com sucesso! Entraremos em contato em breve.";
+      statusMessage.classList.add("is-success");
+    } catch {
+      statusMessage.textContent =
+        "Não foi possível enviar a mensagem. Tente novamente ou envie um e-mail.";
+      statusMessage.classList.add("is-error");
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  });
+}
